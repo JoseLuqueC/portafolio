@@ -7,15 +7,22 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
+  },
+  "engines": {
+    "node": "v12.16.3",
+    "npm": "6.14.5"
   },
   "private": true,
   "dependencies": {
     "@angular-material-components/file-input": "^2.0.0",
     "@angular/animations": "~9.1.4",
     "@angular/cdk": "^9.2.3",
+    "@angular/cli": "^9.1.7",
     "@angular/common": "~9.1.4",
     "@angular/compiler": "~9.1.4",
+    "@angular/compiler-cli": "^9.1.9",
     "@angular/core": "~9.1.4",
     "@angular/forms": "~9.1.4",
     "@angular/material": "^9.2.3",
@@ -24,16 +31,19 @@
     "@angular/router": "~9.1.4",
     "@popperjs/core": "^2.4.0",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.10.13",
     "tslib": "^1.10.0",
+    "typescript": "~3.8.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
-    "@angular/cli": "~9.1.4",
-    "@angular/compiler-cli": "~9.1.4",
+    "@angular/cli": "^9.1.7",
+    "@angular/compiler-cli": "^9.1.9",
     "@angular/language-service": "~9.1.4",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
