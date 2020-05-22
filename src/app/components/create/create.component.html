@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>{{title}}</h2>
+
+  <form class="example-form" #projectFrom="ngForm">
+    <p>
+
+      <mat-form-field  class="example-full-width">
+        <mat-label for="name">Nombre</mat-label>
+        <input matInput type="text" name="name" #name="ngModel" [(ngModel)]="project.name" required>
+      </mat-form-field>
+      <span class="form_error" *ngIf="name.touched && name.invalid">El Nombre es obligatorio</span>
+
+    </p>
+    <p>
+
+      <mat-form-field class="example-full-width">
+        <mat-label for="description">Descripción</mat-label>
+        <textarea name="description" #description="ngModel" [(ngModel)]="project.description" matInput required></textarea>
+      </mat-form-field>
+      <span class="form_error" *ngIf="description.touched && description.invalid">La Descripción es obligatorio</span>
+
+    </p>
+    <p>
+
+      <mat-form-field  class="example-full-width" >
+        <mat-label for="category">Categoria</mat-label>
+        <input matInput type="text" name="category" #category="ngModel" [(ngModel)]="project.category" required>
+      </mat-form-field>
+      <span class="form_error" *ngIf="category.touched && category.invalid">La Categoria es obligatorio</span>
+
+    </p>
+    <p>
+
+      <mat-form-field  class="example-full-width" >
+        <mat-label for="year">Año de lanzamiento</mat-label>
+        <input matInput type="number" name="year" #year="ngModel" [(ngModel)]="project.year" required>
+      </mat-form-field>
+      <span class="form_error" *ngIf="year.touched && year.invalid">El Año de lanzamiento es obligatorio</span>
+      
+    </p>
+    <p>
+
+      <mat-form-field  class="example-full-width" >
+        <mat-label for="langs">Lenguajes utilizados</mat-label>
+        <input matInput type="text" name="langs" #langs="ngModel" [(ngModel)]="project.langs" required>
+      </mat-form-field>
+      <span class="form_error" *ngIf="langs.touched && langs.invalid">El campo Lenguajes utilizados es obligatorio</span>
+
+    </p>
+    <p>
+      <!-- <label for="image">Imagen del proyecto</label> -->
+      <!-- <input type="file" name="image" placeholder="Subir imagen"> -->
+
+      <button type="file" mat-raised-button (click)="fileInput.click()"><mat-icon>attach_file</mat-icon> Subir Imagen del proyecto</button>
+      <input name="image" hidden  #fileInput type="file" id="file" (change)="fileChangeEvent($event)"/>
+      
+  
+
+    </p>
+    <button  mat-raised-button type="submit" value="Enviar" [disabled]="!projectFrom.form.valid" (click)="onSubmit(projectFrom)">ENVIAR</button>
+
+  </form>
+</div>
